@@ -10,7 +10,7 @@ pipeline{
             steps {
                 script {
                     // Chạy Maven test
-                    sh 'mvn clean test'
+                    bat 'mvn clean test'
                 }
             }
         }
