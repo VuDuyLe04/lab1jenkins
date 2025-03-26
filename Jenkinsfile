@@ -6,11 +6,11 @@ pipeline {
                 git 'https://github.com/VuDuyLe04/JENKINS-GITHUB.git'
             }
         }
-        stage('Build & Test') {
+        stage('Run Test') {
             steps {
                 script {
-                    // Chạy Maven chỉ cho file test DoctorManagerTest
-                    sh 'mvn clean test -Dtest=DoctorManagerTest'
+                    // Chạy bài test với JUnit Console Launcher
+                    bat 'java -jar junit-platform-console-standalone-1.7.2.jar --class-path target/classes --scan-class-path'
                 }
             }
         }
