@@ -17,23 +17,17 @@ pipeline {
                 }
             }
         }
-
-        // stage('Test') {
-        //     steps {
-        //         script {
-        //             // Thực hiện test (mvn test)
-        //             dir('C:/ProgramData/Jenkins/.jenkins/workspace/Lab1-jenkins/test/lab1') {
-        //                 bat 'mvn clean test -Dtest=DoctorManagerTest'  // Chạy bài kiểm thử Maven
-        //             }
-        //         }
-        //     }
-        // }
-
-        // stage('Publish Test Results') {
-        //     steps {
-        //         junit '**/target/test-*.xml'  // Tự động tìm kiếm file kết quả JUnit
-        //     }
-        // }
+        
+        stage('Run') {
+            steps {
+                script {
+                    // Chạy chương trình sau khi build thành công
+                    dir('C:/ProgramData/Jenkins/.jenkins/workspace/Lab1-jenkins') {
+                        bat 'mvn exec:java'  // Chạy chương trình Maven nếu có cấu hình main class trong pom.xml
+                    }
+                }
+            }
+        }
     }
     post {
         always {
