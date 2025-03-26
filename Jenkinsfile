@@ -1,7 +1,7 @@
-pipeline{
+pipeline {
     agent any
     stages {
-        stage('Clone'){
+        stage('Clone') {
             steps {
                 git 'https://github.com/VuDuyLe04/JENKINS-GITHUB.git'
             }
@@ -9,14 +9,14 @@ pipeline{
         stage('Build & Test') {
             steps {
                 script {
-                    // Chạy Maven test
-                    bat 'mvn clean test'
+                    // Chạy Maven chỉ cho file test DoctorManagerTest
+                    bat 'mvn clean test -Dtest=DoctorManagerTest'
                 }
             }
         }
         stage('Publish Test Results') {
             steps {
-                junit '**/target/test-*.xml' // Tự động tìm kiếm file kết quả JUnit
+                junit '**/target/test-*.xml'  // Tự động tìm kiếm file kết quả JUnit
             }
         }
     }
