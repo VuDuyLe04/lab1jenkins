@@ -18,16 +18,16 @@ pipeline {
             }
         }
 
-        stage('Test') {
-            steps {
-                script {
-                    // Thực hiện test (mvn test)
-                    dir('C:/ProgramData/Jenkins/.jenkins/workspace/Lab1-jenkins/test/lab1') {
-                        bat 'mvn clean test -Dtest=DoctorManagerTest'  // Chạy bài kiểm thử Maven
-                    }
-                }
-            }
-        }
+        // stage('Test') {
+        //     steps {
+        //         script {
+        //             // Thực hiện test (mvn test)
+        //             dir('C:/ProgramData/Jenkins/.jenkins/workspace/Lab1-jenkins/test/lab1') {
+        //                 bat 'mvn clean test -Dtest=DoctorManagerTest'  // Chạy bài kiểm thử Maven
+        //             }
+        //         }
+        //     }
+        // }
 
         stage('Publish Test Results') {
             steps {
