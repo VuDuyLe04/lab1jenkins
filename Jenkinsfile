@@ -18,16 +18,6 @@ pipeline {
             }
         }
         
-        stage('Run') {
-            steps {
-                script {
-                    // Chạy chương trình sau khi build thành công
-                    dir('C:/ProgramData/Jenkins/.jenkins/workspace/Lab1-jenkins') {
-                        bat 'mvn exec:java'  // Chạy chương trình Maven nếu có cấu hình main class trong pom.xml
-                    }
-                }
-            }
-        }
     }
     post {
         always {
