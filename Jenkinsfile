@@ -10,7 +10,7 @@ pipeline {
             steps {
                 script {
                     // Chạy Maven chỉ cho file test DoctorManagerTest
-                    bat 'mvn clean test -Dtest=DoctorManagerTest'
+                    sh 'mvn clean test -Dtest=DoctorManagerTest'
                 }
             }
         }
