@@ -10,7 +10,7 @@ pipeline {
             steps {
                 script {
                     // Chạy Maven chỉ cho file test DoctorManagerTest
-                    dir('C:/ProgramData/Jenkins/.jenkins/workspace/Lab1-jenkins/test/lab1') {
+                    dir('C:/ProgramData/Jenkins/.jenkins/workspace/Lab1-jenkins') {
                         bat 'mvn clean test -Dtest=DoctorManagerTest'
                     }
                 }
