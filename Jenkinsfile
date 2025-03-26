@@ -6,16 +6,29 @@ pipeline {
                 git 'https://github.com/VuDuyLe04/lab1jenkins.git'  // Đảm bảo đường dẫn đúng
             }
         }
-        stage('Build & Test') {
+        
+        stage('Build') {
             steps {
                 script {
-                    // Chạy Maven chỉ cho file test DoctorManagerTest
+                    // Thực hiện build (mvn clean install)
                     dir('C:/ProgramData/Jenkins/.jenkins/workspace/Lab1-jenkins') {
-                        bat 'mvn clean test -Dtest=DoctorManagerTest'
+                        bat 'mvn clean install'  // Chạy build Maven
                     }
                 }
             }
         }
+
+        stage('Test') {
+            steps {
+                script {
+                    // Thực hiện test (mvn test)
+                    dir('C:/ProgramData/Jenkins/.jenkins/workspace/Lab1-jenkins/test/lab1') {
+                        bat 'mvn clean test -Dtest=DoctorManagerTest'  // Chạy bài kiểm thử Maven
+                    }
+                }
+            }
+        }
+
         stage('Publish Test Results') {
             steps {
                 junit '**/target/test-*.xml'  // Tự động tìm kiếm file kết quả JUnit
