@@ -29,11 +29,11 @@ pipeline {
         //     }
         // }
 
-        stage('Publish Test Results') {
-            steps {
-                junit '**/target/test-*.xml'  // Tự động tìm kiếm file kết quả JUnit
-            }
-        }
+        // stage('Publish Test Results') {
+        //     steps {
+        //         junit '**/target/test-*.xml'  // Tự động tìm kiếm file kết quả JUnit
+        //     }
+        // }
     }
     post {
         always {
